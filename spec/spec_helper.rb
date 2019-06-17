@@ -6,17 +6,13 @@ ENV['HOME'] = "spec/fixtures/home"
 require "byebug"
 require "fileutils"
 require "jets"
+require 'active_model_serializers'
 
 abort("The Jets environment is running in production mode!") if Jets.env == "production"
 Jets.boot
 
+require 'rspec/rails'
 require "jets/spec_helpers"
-
-require 'capybara/rspec'
-Capybara.app = Jets.application
-# Capybara.current_driver = :selenium
-# Capybara.app_host = 'http://localhost:8888'
-
 
 module Helpers
   def payload(name)
