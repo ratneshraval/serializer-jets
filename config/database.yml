@@ -1,16 +1,9 @@
 default: &default
   adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: utf8
+  pool: <%= ENV["DB_POOL"] || 5  %>
   timeout: 5000
-  # adapter: mysql2
-  # encoding: utf8
-  # pool: <%= ENV["DB_POOL"] || 5  %>
-  # database: <%= ENV['DB_NAME'] || 'serializer-jets_development' %>
-  # username: <%= ENV['DB_USER'] || 'root' %>
-  # password: <%= ENV['DB_PASS'] %>
-  # host: <%= ENV["DB_HOST"] %>
-  # url: <%= ENV['DATABASE_URL'] %> # takes higher precedence than other settings
-
+  
 development:
   <<: *default
   database: db/development.sqlite3
@@ -19,7 +12,8 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
   <<: *default
-  database: serializer-jets_production
+  database: serializer-jets-2_production
   url: <%= ENV['DATABASE_URL'] %>

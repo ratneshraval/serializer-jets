@@ -1,11 +1,25 @@
+require 'active_model_serializers/test/schema'
+require 'json'
+require 'json_schema'
 
-RSpec.describe TodosController, type: :controller do
+describe TodosController, type: :controller do
 
   describe 'GET index' do
     it 'should render TodoSerializer' do
       get '/todos'
-      assert_serializer TodoSerializer
+      # assert_serializer TodoSerializer
+      assert_schema('todos.json')
+    end
+
+    it 'should render TodoSerializer' do
+      get '/todos'
+      assert_serializer 'TodoSerializer'
+    end
+
+    it 'should render TodoSerializer' do
+      get '/todos'
+      # assert_serializer TodoSerializer
+      assert_response_schema('todos.json')
     end
   end
-
 end

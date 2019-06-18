@@ -1,6 +1,6 @@
 Jets.application.configure do
-  config.project_name = "serializer-jets"
-  config.mode = "html"
+  config.project_name = "serializer-jets-2"
+  config.mode = "api"
 
   config.prewarm.enable = true # default is true
   # config.prewarm.rate = '30 minutes' # default is '30 minutes'
@@ -28,8 +28,8 @@ Jets.application.configure do
   # More examples:
   # config.function.dead_letter_config = { target_arn: "arn" }
   # config.function.vpc_config = {
-  #   security_group_ids: [ "sg-1", "sg-2" ],
-  #   subnet_ids: [ "subnet-1", "subnet-2" ]
+  #   security_group_ids: %w[sg-1 sg-2],
+  #   subnet_ids: %w[subnet-1 subnet-2],
   # }
   # The config.function settings to the CloudFormation Lambda Function properties.
   # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
