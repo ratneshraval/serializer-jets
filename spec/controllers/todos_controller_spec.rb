@@ -10,6 +10,16 @@ describe TodosController, type: :controller do
       # assert_serializer TodoSerializer
       assert_schema('todos.json')
     end
-  end
 
+    it 'should render TodoSerializer' do
+      get '/todos'
+      assert_serializer 'TodoSerializer'
+    end
+
+    it 'should render TodoSerializer' do
+      get '/todos'
+      # assert_serializer TodoSerializer
+      assert_response_schema('todos.json')
+    end
+  end
 end
