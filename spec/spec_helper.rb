@@ -23,7 +23,8 @@ end
 RSpec.configure do |c|
   c.include Helpers
 
-  
+  # c.include ActiveModelSerializers::Test::Schema
+  # c.include ActiveModelSerializers::Test::Serializer
 end
 
 Shoulda::Matchers.configure do |config|
